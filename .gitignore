@@ -1,0 +1,5 @@
+# data
+data/movienet/
+
+# pycache
+__pycache__/
