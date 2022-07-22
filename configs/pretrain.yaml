@@ -49,7 +49,7 @@ TRAIN:
   BATCH_SIZE: 128
   COLLATE_FN: default_collator
   NUM_WORKERS: 8
-  PIN_MEMORY: False
+  PIN_MEMORY: True
   TEMPERATURE: 0.1
   OPTIMIZER:
     name: lars

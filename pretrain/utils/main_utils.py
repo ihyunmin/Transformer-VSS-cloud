@@ -81,6 +81,7 @@ def init_data_loader(cfg, mode, is_train):
         num_workers=cfg.TRAIN.NUM_WORKERS,
         drop_last=True, # modified to False when val/test
         shuffle=is_train,
+        pin_memory=cfg.TRAIN.PIN_MEMORY,
         collate_fn=get_collate_fn(cfg),
     )
 
