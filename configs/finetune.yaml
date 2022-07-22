@@ -1,5 +1,7 @@
 EXPR_NAME: swin
 SEED: 42
+PROJ_ROOT: "/data/private/train"
+DATA_PATH: "/data/project/rw/movienet"
 LOAD_FROM: "" # ex) swin
 PRETRAINED_LOAD_FROM: swin # ex) swin
 #LOGGING:

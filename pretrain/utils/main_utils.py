@@ -24,11 +24,8 @@ def init_config(path):
     # set random seed
     pl.seed_everything(cfg.SEED)
 
-    cfg.PROJ_ROOT = "/data/private/train"
-
     # dataset path
     if cfg.DATASET == "movienet":
-        cfg.DATA_PATH = "/data/project/rw/movienet"
         cfg.IMG_PATH = os.path.join(cfg.DATA_PATH, "240P_frames")
         cfg.FEAT_PATH = os.path.join(cfg.DATA_PATH, "features")
         cfg.ANNO_PATH = os.path.join(cfg.DATA_PATH, "anno")
