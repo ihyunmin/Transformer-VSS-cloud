@@ -91,5 +91,5 @@ MODEL:
       dropout_ratio: 0.1
 LOSS:
 DISTRIBUTED:
-  NUM_NODES: 4
-  NUM_PROC_PER_NODE: 1 # num of gpus
+  NUM_NODES: 1
+  NUM_PROC_PER_NODE: 4 # num of gpus

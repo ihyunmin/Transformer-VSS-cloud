@@ -78,7 +78,7 @@ def init_data_loader(cfg, mode, is_train):
     data_loader = torch.utils.data.DataLoader(
         dataset=get_dataset(cfg, mode=mode, is_train=is_train),
         batch_size=cfg.TRAIN.BATCH_SIZE//2,
-        num_workers=cfg.TRAIN.NUM_WORKERS,
+        num_workers=cfg.DISTRIBUTED.WORLD_SIZE*4, # heuristic
         drop_last=True, # modified to False when val/test
         shuffle=is_train,
         pin_memory=cfg.TRAIN.PIN_MEMORY,
