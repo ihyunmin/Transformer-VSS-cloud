@@ -43,7 +43,7 @@ def init_config(path):
     )
 
     # shot feature log path
-    cfg.SHOT_LOG_PATH = os.path.join(cfg.DATA_PATH, "shot_logs")
+    cfg.SHOT_LOG_PATH = os.path.join(cfg.LOG_PATH, "shot_logs")
 
     # distributed
     cfg.DISTRIBUTED.WORLD_SIZE = int(
