@@ -73,7 +73,7 @@ def window_reverse(x, batch_size):
     '''
 
     assert len(x.shape) == 3
-    x = rearrange(x, "(b n) w d -> b (n w) d", b=batch_size)
+    x = rearrange(x, "(b n) w d -> b (n w) d", n=2)
 
     return x
 
