@@ -66,12 +66,15 @@ class MovieNetDataset(BaseDataset):
 
     def _getitem_for_pretrain(self, idx: int):
         data1 = self.anno_data[idx]
-        data2 = self.anno_data[idx+1]
-        
-        idx2 = idx + 1
-        if (data1["video_id"] != data2["video_id"]) or (idx2 >= len(self.anno_data)):
-            data2 = self.anno_data[idx-1]
+        if idx < len(self.anno_data)-1:
+            idx2 = idx + 1
+        else:
             idx2 = idx - 1
+        data2 = self.anno_data[idx2]
+        
+        if data1["video_id"] != data2["video_id"]:
+            idx2 = idx - 1
+            data2 = self.anno_data[idx2]
         
         payload = {"idx": [idx, idx2],
                    "vid": [data1["video_id"], data2["video_id"]],
