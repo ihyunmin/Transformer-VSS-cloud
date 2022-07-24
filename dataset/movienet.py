@@ -69,7 +69,7 @@ class MovieNetDataset(BaseDataset):
         data2 = self.anno_data[idx+1]
         
         idx2 = idx + 1
-        if data1["video_id"] != data2["video_id"]:
+        if (data1["video_id"] != data2["video_id"]) or (idx2 >= len(self.anno_data)):
             data2 = self.anno_data[idx-1]
             idx2 = idx - 1
         
