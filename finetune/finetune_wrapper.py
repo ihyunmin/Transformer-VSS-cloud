@@ -23,11 +23,8 @@ class FinetuningWrapper(pl.LightningModule):
         # define model components
         self.shot_encoder = shot_encoder
         self.crn = crn
-        self.head = nn.Sequential(
-            nn.Linear(4*768, 2),
-            nn.GELU(),
-            nn.Dropout(p=0.5),
-        )
+        self.head = nn.Linear(4*768, 2)
+        
         if not cfg.MODEL.shot_encoder.enabled:
             self.shot_encoder = None
 
