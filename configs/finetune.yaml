@@ -92,4 +92,4 @@ MODEL:
 LOSS:
 DISTRIBUTED:
   NUM_NODES: 1
-  NUM_PROC_PER_NODE: 4 # num of gpus
+  NUM_PROC_PER_NODE: 2 # num of gpus
