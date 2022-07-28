@@ -154,7 +154,7 @@ def init_trainer(cfg):
     )
 
     # learning rate callback
-    callbacks.append(pl.callbacks.LearningRateMonitor(logging_interval="epoch"))
+    callbacks.append(pl.callbacks.LearningRateMonitor(logging_interval="step"))
 
     # GPU stat callback
     callbacks.append(

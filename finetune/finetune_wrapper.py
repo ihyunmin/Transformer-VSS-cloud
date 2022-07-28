@@ -23,7 +23,12 @@ class FinetuningWrapper(pl.LightningModule):
         # define model components
         self.shot_encoder = shot_encoder
         self.crn = crn
-        self.head = nn.Linear(4*768, 2)
+        #self.head = nn.Linear(4*768, 2)
+        self.head = nn.Sequential(
+                    nn.Linear(4*768, 128),
+                    nn.GELU(),
+                    nn.Dropout(p=0.5),
+                    nn.Linear(128, 2))
         
         if not cfg.MODEL.shot_encoder.enabled:
             self.shot_encoder = None
@@ -119,8 +124,8 @@ class FinetuningWrapper(pl.LightningModule):
                                                        eta_min=self.cfg.TRAIN.OPTIMIZER.lr.scaled_lr/50)
             '''
             scheduler = lr_scheduler.CosineAnnealingWarmRestarts(optimizer,
-                                                                 T_0=int(total_steps*0.1),
-                                                                 eta_min=self.cfg.TRAIN.OPTIMIZER.lr.scaled_lr/50)
+                                                                 T_0=2,
+                                                                 eta_min=self.cfg.TRAIN.OPTIMIZER.lr.scaled_lr/100)
         else:
             raise NotImplementedError
 

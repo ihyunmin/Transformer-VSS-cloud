@@ -57,8 +57,8 @@ TRAIN:
     regularize_bn: False
     regularize_bias: False
     lr:
-      base_lr: 0.0025
-      base_lr_batch_size: 256
+      base_lr: 0.001
+      base_lr_batch_size: 1024
       auto_scale: True
     scheduler:
       name: cosine_annealing
