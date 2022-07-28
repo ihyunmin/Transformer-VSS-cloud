@@ -57,7 +57,7 @@ TRAIN:
     regularize_bn: False
     regularize_bias: False
     lr:
-      base_lr: 0.0000025
+      base_lr: 0.0025
       base_lr_batch_size: 256
       auto_scale: True
     scheduler:

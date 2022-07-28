@@ -113,9 +113,14 @@ class FinetuningWrapper(pl.LightningModule):
                 "frequency": 1,
             }
         elif self.cfg.TRAIN.OPTIMIZER.scheduler.name == "cosine_annealing":
+            '''
             scheduler = lr_scheduler.CosineAnnealingLR(optimizer,
                                                        T_max=self.cfg.TRAINER.max_epochs,
                                                        eta_min=self.cfg.TRAIN.OPTIMIZER.lr.scaled_lr/50)
+            '''
+            scheduler = lr_scheduler.CosineAnnealingWarmRestarts(optimizer,
+                                                                 T_0=int(total_steps*0.1),
+                                                                 eta_min=self.cfg.TRAIN.OPTIMIZER.lr.scaled_lr/50)
         else:
             raise NotImplementedError
 
