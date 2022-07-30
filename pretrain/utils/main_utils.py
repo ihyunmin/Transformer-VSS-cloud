@@ -79,7 +79,7 @@ def init_data_loader(cfg, mode, is_train):
         dataset=get_dataset(cfg, mode=mode, is_train=is_train),
         batch_size=cfg.TRAIN.BATCH_SIZE//2,
         num_workers=cfg.DISTRIBUTED.WORLD_SIZE*4, # heuristic
-        drop_last=True, # modified to False when val/test
+        drop_last=False,
         shuffle=is_train,
         pin_memory=cfg.TRAIN.PIN_MEMORY,
         collate_fn=get_collate_fn(cfg),
